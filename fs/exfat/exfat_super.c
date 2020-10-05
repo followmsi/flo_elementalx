@@ -506,7 +506,7 @@ static int exfat_create(struct inode *dir, struct dentry *dentry, umode_t mode,
 						bool excl)
 #elif LINUX_VERSION_CODE >= KERNEL_VERSION(3,4,00)
 static int exfat_create(struct inode *dir, struct dentry *dentry, umode_t mode,
-						struct nameidata *nd)
+						bool excl)
 #else
 static int exfat_create(struct inode *dir, struct dentry *dentry, int mode,
 						struct nameidata *nd)
@@ -591,7 +591,7 @@ static struct dentry *exfat_lookup(struct inode *dir, struct dentry *dentry,
 						   unsigned int flags)
 #else
 static struct dentry *exfat_lookup(struct inode *dir, struct dentry *dentry,
-						   struct nameidata *nd)
+						   unsigned int flags)
 #endif
 {
 	struct super_block *sb = dir->i_sb;
